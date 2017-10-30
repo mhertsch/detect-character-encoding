@@ -8,9 +8,9 @@ NAN_METHOD(DetectCharacterEncoding) {
 
 	v8::Local<v8::Object> inputBuffer = info[0]->ToObject();
 
-    if (!node::Buffer::HasInstance(inputBuffer)) {
-      return Nan::ThrowTypeError("Buffer instance expected!");
-    }
+	if (!node::Buffer::HasInstance(inputBuffer)) {
+		return Nan::ThrowTypeError("Buffer instance expected!");
+	}
 
 	UCharsetDetector *charsetDetector;
 	const UCharsetMatch *charsetMatch;
@@ -73,9 +73,9 @@ NAN_METHOD(DetectAllCharacterEncodings) {
 
 	v8::Local<v8::Object> inputBuffer = info[0]->ToObject();
 
-    if (!node::Buffer::HasInstance(inputBuffer)) {
-      return Nan::ThrowTypeError("Buffer instance expected!");
-    }
+	if (!node::Buffer::HasInstance(inputBuffer)) {
+		return Nan::ThrowTypeError("Buffer instance expected!");
+	}
 
 	UCharsetDetector *charsetDetector;
 	const UCharsetMatch *charsetMatch;
@@ -134,8 +134,8 @@ NAN_METHOD(DetectAllCharacterEncodings) {
 }
 
 NAN_MODULE_INIT(Init) {
-    NAN_EXPORT(target, DetectCharacterEncoding);
-    NAN_EXPORT(target, DetectAllCharacterEncodings);
+	NAN_EXPORT(target, DetectCharacterEncoding);
+	NAN_EXPORT(target, DetectAllCharacterEncodings);
 }
 
 NODE_MODULE(icuWrapper, Init);
